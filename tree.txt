@@ -1,0 +1,12 @@
+https://buntin.tech/api
+├── ybd
+│   ├── nya/
+│   ├── rss/
+│   └── members/
+├── doctor/
+│   
+└── web/ 
+    ├── index/
+    │   ├── tagCloud/
+    │   └── qiita/
+    └── counter/
