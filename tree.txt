@@ -1,5 +1,5 @@
-https://buntin.tech/api
-├── ybd
+https://api.buntin.tech/
+├── ybd/
 │   ├── nya/
 │   ├── rss/
 │   └── members/

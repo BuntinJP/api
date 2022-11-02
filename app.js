@@ -7,8 +7,9 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let testRouter = require('./routes/test');
-let apiRouter = require('./routes/api');
-let nodeRouter = require('./routes/node');
+let ybdRouter = require('./routes/ybd');
+let doctorRouter = require('./routes/doctor');
+let webRouter = require('./routes/web');
 
 let app = express();
 
@@ -25,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ルーティング
 app.use('/', indexRouter);
 app.use('/test', testRouter);
-app.use('/api', apiRouter);
-app.use('/node', nodeRouter);
-
+app.use('/ybd', ybdRouter);
+app.use('/doctor', doctorRouter);
+app.use('/web', webRouter);
 
 
 
@@ -43,7 +44,6 @@ app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
     // render the error page
     res.status(err.status || 500);
     res.render('error');
