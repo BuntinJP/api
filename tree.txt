@@ -4,6 +4,8 @@ https://api.buntin.tech/
 │   ├── rss/
 │   └── members/
 ├── doctor/
+│
+├── discord/ (post to discord)
 │   
 └── web/ 
     ├── index/

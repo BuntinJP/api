@@ -10,6 +10,7 @@ let testRouter = require("./routes/test");
 let ybdRouter = require("./routes/ybd");
 let doctorRouter = require("./routes/doctor");
 let webRouter = require("./routes/web");
+let discordRouter = require("./routes/discord");
 
 let app = express();
 
@@ -28,6 +29,7 @@ app.use("/test", testRouter);
 app.use("/ybd", ybdRouter);
 app.use("/doctor", doctorRouter);
 app.use("/web", webRouter);
+app.use("/discord", discordRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
