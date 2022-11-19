@@ -7,7 +7,7 @@ https://api.buntin.tech/
 │
 ├── discord/ (post to discord)
 │   
-└── web/ 
+└── web/ (api to my homepage)
     ├── index/
     │   ├── tagCloud/
     │   └── qiita/
