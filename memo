@@ -5,3 +5,9 @@ ENDed(/)来たリクエストには特製エラーページ
 (/node)現在の状態を記録。できればbasic認証をつけたい。
 
 issue使えよな！
+
+2022/11/23
+routes/discordにて、postリクエストのテスト完了。
+discordをbuntin.techのどこに実装するか。tokenリストをsetting.jsonにて一つのオブジェクトとして管理するところまでは決めた。
+.envはjsonを動的に変更していくのが面倒なので却下。
+次はbuntin.tech/discord?token=trueでtokenを取得できるようにする。
