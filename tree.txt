@@ -4,8 +4,10 @@ https://api.buntin.tech/
 │   ├── rss/
 │   └── members/
 ├── doctor/
+│
+├── discord/ (post to discord)
 │   
-└── web/ 
+└── web/ (api to my homepage)
     ├── index/
     │   ├── tagCloud/
     │   └── qiita/

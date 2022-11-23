@@ -1,6 +1,7 @@
 # api
+
 ## api setup for my own website
 
-### planning tree structure
+### planning structure
 
 ![planning tree structure](planURLtree.png)
