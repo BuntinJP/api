@@ -16,18 +16,21 @@ router.get('/tokens', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     let data = req.body;
-    console.log(data);
-    console.log(data.test);
-    res.send('discord');
+    let content = data.content;
+    let response = sendData(data.token, { content: content });
+    console.log(response);
 });
 
-const sendWebhook = (url, content) => {
-    const config = {
-        "headers": {
-            "Accept": 'application/json',
+async function sendData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
             'Content-Type': 'application/json',
-        }
-    }
+        },
+        body: JSON.stringify(data),
+    });
+    return await response.json();
 }
 
 module.exports = router;
