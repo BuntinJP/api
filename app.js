@@ -1,18 +1,18 @@
 // test commit
-let createError = require('http-errors');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-let indexRouter = require('./routes/index');
-let testRouter = require('./routes/test');
-let ybdRouter = require('./routes/ybd');
-let doctorRouter = require('./routes/doctor');
-let webRouter = require('./routes/web');
-let discordRouter = require('./routes/discord');
+const indexRouter = require('./routes/index');
+const testRouter = require('./routes/test');
+const ybdRouter = require('./routes/ybd');
+const doctorRouter = require('./routes/doctor');
+const webRouter = require('./routes/web');
+const discordRouter = require('./routes/discord');
 
-let app = express();
+const app = express();
 
 // view エンジン設定
 app.set('views', path.join(__dirname, 'views'));
