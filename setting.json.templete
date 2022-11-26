@@ -1,0 +1,13 @@
+
+    "tokens": [
+        { "token": "tokenexample", "channel-name": "channelname" },
+        { "token": "tokenexample2", "channel-name": "channelname2" }
+    ],
+    "postLog": [
+        {
+            "channel": "channelname",
+            "message": "message",
+            "date": "date"
+        }
+    ]
+}
