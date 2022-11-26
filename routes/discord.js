@@ -1,4 +1,4 @@
-let express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 let router = express.Router();
 const fs = require('fs');
@@ -20,5 +20,14 @@ router.post('/', function (req, res, next) {
     console.log(data.test);
     res.send('discord');
 });
+
+const sendWebhook = (url, content) => {
+    const config = {
+        "headers": {
+            "Accept": 'application/json',
+            'Content-Type': 'application/json',
+        }
+    }
+}
 
 module.exports = router;
