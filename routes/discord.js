@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-let router = express.Router();
+const axios = require('axios');
+const router = express.Router();
 const fs = require('fs');
+const { decycle } = require('json-cyclic');
 
 router.use(bodyParser.json());
 router.get('/', function (req, res, next) {
@@ -9,28 +11,42 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/tokens', function (req, res, next) {
-    const data = JSON.parse(fs.readFileSync('./setting.json', 'utf8'));
-    const tokens = data.tokens;
-    sendJson(res, tokens);
+    setting().then((data) => {
+        res.send(data);
+    }).catch((err) => {
+        res.send(err);
+    });
 });
+
+router.post("/tokens", function (req, res, next) {
+    res.send("ok");
+})
 
 router.post('/', function (req, res, next) {
     let data = req.body;
-    let content = data.content;
-    let response = sendData(data.token, { content: content });
-    console.log(response);
+    sendData(data);
+    res.send('ok');
 });
 
-async function sendData(url = '', data = {}) {
-    const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+async function sendData(data) {
+    let response = await axios.post(data.token, { content: data.content });
+    fs.writeFile("./logs/response.json", JSON.stringify(decycle(response)), function (err) {
+        if (err) {
+            return console.log(err);
+        }
     });
-    return await response.json();
+    return response;
+}
+
+const setting = () => {
+    return new Promise((resolve, reject) => {
+        fs.readFile('./setting.json', 'utf8', (err, data) => {
+            if (err) {
+                reject("setting.json not found");
+            }
+            resolve(data);
+        });
+    });
 }
 
 module.exports = router;
